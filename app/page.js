@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   Bell,
   ChevronRight,
-  UtensilsCrossed,,
+  UtensilsCrossed,
 } from "lucide-react";
 
 const departments = [
