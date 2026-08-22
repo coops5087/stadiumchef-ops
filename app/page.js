@@ -146,7 +146,11 @@ export default function HomePage() {
         <header className="hero">
           <div className="hero-copy">
             <div className="welcome">WELCOME BACK,</div>
-            <h1>CHEF MATT</h1>
+            <h1>
+  MERCEDES-BENZ STADIUM
+  <br />
+  CULINARY DEPARTMENT
+</h1>
             <p>
               One home for the tools that support
               <br />
