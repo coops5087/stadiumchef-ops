@@ -1,0 +1,1047 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #060708;
+  color: #f4f4f2;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 75% 12%,
+      rgba(110, 0, 0, 0.09),
+      transparent 28%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.012) 0px,
+      rgba(255, 255, 255, 0.012) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(90deg, #050607 0%, #0b0d0f 100%);
+}
+
+button {
+  font: inherit;
+}
+
+/* =========================================
+   MAIN APP LAYOUT
+   ========================================= */
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+}
+
+/* =========================================
+   LEFT SIDEBAR
+   ========================================= */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 8px 24px;
+  border-right: 1px solid #343434;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.018) 0px,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    linear-gradient(90deg, #070809 0%, #111315 100%);
+}
+
+.brand {
+  text-align: center;
+  padding: 8px 8px 22px;
+  border-bottom: 1px solid #282828;
+}
+
+.brand-stadium {
+  font-size: 45px;
+  line-height: 0.87;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #f3f3f1;
+}
+
+.brand-chef {
+  margin-top: 2px;
+  font-size: 50px;
+  line-height: 0.92;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: #f3f3f1;
+}
+
+.brand-ops {
+  position: relative;
+  display: inline-block;
+  margin-top: 12px;
+  padding: 0 20px;
+  color: #dd272c;
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: 6px;
+}
+
+.brand-ops::before,
+.brand-ops::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 43px;
+  height: 1px;
+  background: #a9191e;
+}
+
+.brand-ops::before {
+  right: 100%;
+}
+
+.brand-ops::after {
+  left: 100%;
+}
+
+.knife-letter {
+  position: relative;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.sidebar-item {
+  width: 100%;
+  border: 0;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid #1d1d1d;
+  background: transparent;
+  color: #efefed;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 12px 21px;
+  text-align: left;
+  cursor: pointer;
+
+  font-size: 17px;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.sidebar-active {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(154, 18, 18, 0.95),
+      rgba(69, 6, 6, 0.9)
+    );
+
+  border: 1px solid #d9272c;
+  border-left: 4px solid #ff3e42;
+
+  box-shadow:
+    inset 0 0 18px rgba(255, 0, 0, 0.12),
+    0 0 9px rgba(150, 0, 0, 0.22);
+}
+
+.sidebar-heading {
+  padding: 20px 26px 5px;
+  color: #7d7d7d;
+  font-size: 13px;
+  letter-spacing: 1.7px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid #292929;
+
+  color: #7f7f7f;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.sidebar-footer strong {
+  display: block;
+  margin-top: 5px;
+  color: #e02a2f;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+.footer-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+
+  display: grid;
+  place-items: center;
+
+  border: 2px solid #8f1519;
+  border-radius: 50%;
+  color: #efefed;
+}
+
+/* =========================================
+   MAIN CONTENT
+   ========================================= */
+
+.main-content {
+  width: 100%;
+  max-width: 1535px;
+  margin: 0 auto;
+  padding: 0 30px 28px;
+}
+
+/* =========================================
+   HERO / HEADER
+   ========================================= */
+
+.hero {
+  position: relative;
+  min-height: 260px;
+  padding: 42px 12px 20px;
+
+  display: flex;
+  align-items: flex-start;
+
+  overflow: hidden;
+  border-bottom: 1px solid #771116;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 5;
+  max-width: 650px;
+}
+
+.welcome {
+  margin-bottom: 7px;
+  color: #e5272c;
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 1.6px;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+
+  color: #ededeb;
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 59px;
+  line-height: 0.93;
+  letter-spacing: 1.5px;
+
+  text-shadow:
+    0 1px 0 #fff,
+    1px 2px 0 #777,
+    0 3px 7px rgba(0, 0, 0, 0.75);
+}
+
+.hero-copy p {
+  margin: 0;
+  color: #f1f1ef;
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+.hero-underline {
+  width: 70px;
+  height: 3px;
+  margin-top: 16px;
+  background: #e5262b;
+}
+
+/* decorative operations-forward chevron */
+
+.hero-design {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 57%;
+  height: 100%;
+
+  opacity: 0.95;
+
+  background:
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 29%,
+      rgba(67, 69, 72, 0.35) 29.2%,
+      rgba(10, 11, 12, 0.92) 39%,
+      rgba(181, 23, 27, 0.7) 39.3%,
+      rgba(10, 11, 12, 0.96) 39.7%,
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0%,
+      transparent 44%,
+      rgba(75, 77, 80, 0.25) 44.3%,
+      rgba(10, 10, 11, 0.92) 52%,
+      transparent 65%
+    ),
+    repeating-linear-gradient(
+      25deg,
+      rgba(255, 255, 255, 0.018) 0,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+}
+
+.user-area {
+  position: absolute;
+  z-index: 8;
+  top: 26px;
+  right: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  color: #f4f4f2;
+}
+
+.notification {
+  position: relative;
+  display: flex;
+}
+
+.notification span {
+  position: absolute;
+  top: -10px;
+  right: -7px;
+
+  min-width: 18px;
+  height: 18px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1px 4px;
+  border-radius: 20px;
+  background: #d91e24;
+  color: white;
+
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #bdbdbd;
+  border-radius: 50%;
+
+  color: #f6f6f4;
+  font-size: 15px;
+}
+
+.user-name {
+  font-size: 15px;
+}
+
+.user-arrow {
+  margin-left: -4px;
+  font-size: 18px;
+}
+
+/* =========================================
+   SECTION TITLES
+   ========================================= */
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin: 9px 0 14px;
+
+  color: #dededc;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 24px;
+  letter-spacing: 1.6px;
+}
+
+.chevrons {
+  color: #df2228;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  margin-left: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #a6151a 0%,
+      #5d0a0d 50%,
+      rgba(95, 8, 11, 0.18) 100%
+    );
+}
+
+/* =========================================
+   DEPARTMENT CARDS
+   ========================================= */
+
+.department-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+
+  margin-bottom: 8px;
+}
+
+.tool-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid #5f554b;
+  border-radius: 3px;
+
+  background:
+    radial-gradient(
+      circle at 15px 15px,
+      #9b8c7c 0px,
+      #9b8c7c 2px,
+      #322d28 3px,
+      #181716 6px,
+      transparent 7px
+    ),
+    radial-gradient(
+      circle at calc(100% - 15px) 15px,
+      #9b8c7c 0px,
+      #9b8c7c 2px,
+      #322d28 3px,
+      #181716 6px,
+      transparent 7px
+    ),
+    radial-gradient(
+      circle at 15px calc(100% - 15px),
+      #9b8c7c 0px,
+      #9b8c7c 2px,
+      #322d28 3px,
+      #181716 6px,
+      transparent 7px
+    ),
+    radial-gradient(
+      circle at calc(100% - 15px) calc(100% - 15px),
+      #9b8c7c 0px,
+      #9b8c7c 2px,
+      #322d28 3px,
+      #181716 6px,
+      transparent 7px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.015) 0,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    linear-gradient(
+      145deg,
+      #191a1b 0%,
+      #0a0b0c 100%
+    );
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.025),
+    0 7px 16px rgba(0, 0, 0, 0.35);
+}
+
+.department-card {
+  min-height: 292px;
+  padding: 18px 17px 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.department-icon {
+  margin: 7px 0 9px;
+  color: #df282d;
+}
+
+.department-card h2 {
+  margin: 1px 0 10px;
+
+  color: #ddddda;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+
+  text-shadow: 0 2px 2px #000;
+}
+
+.department-card p {
+  max-width: 235px;
+  margin: 0;
+
+  color: #e2e2df;
+
+  font-size: 15.5px;
+  line-height: 1.45;
+}
+
+.coming-soon {
+  margin-top: auto;
+  padding-top: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+
+  color: #df2b2f;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 18px;
+  letter-spacing: 1.5px;
+}
+
+.open-button {
+  width: 84%;
+  min-height: 43px;
+  margin-top: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  border: 1px solid #e63236;
+  border-radius: 3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #8e1719 0%,
+      #690d0f 42%,
+      #3d0607 100%
+    );
+
+  color: #fff;
+
+  cursor: pointer;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 19px;
+  letter-spacing: 1.7px;
+
+  box-shadow:
+    inset 0 0 15px rgba(255, 0, 0, 0.1),
+    0 0 8px rgba(100, 0, 0, 0.3);
+}
+
+/* =========================================
+   SHARED TOOLS
+   EXACTLY FOUR CARDS
+   ========================================= */
+
+.shared-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+
+  margin-bottom: 20px;
+}
+
+.shared-card {
+  min-height: 218px;
+  padding: 15px 13px 14px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.shared-icon {
+  margin: 4px 0 8px;
+  color: #eeeeeb;
+}
+
+.shared-card h3 {
+  margin: 2px 0 9px;
+
+  color: #dededb;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+}
+
+.shared-card p {
+  max-width: 190px;
+  margin: 0;
+
+  color: #ddddda;
+
+  font-size: 13.5px;
+  line-height: 1.42;
+}
+
+/* =========================================
+   FOOD SAFETY BANNER
+   SEPARATE FROM THE FOUR SHARED CARDS
+   ========================================= */
+
+.food-safety-banner {
+  min-height: 104px;
+
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+
+  padding: 12px 27px;
+
+  border: 1px solid #d42429;
+
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.014) 0,
+      rgba(255, 255, 255, 0.014) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    linear-gradient(
+      90deg,
+      #4c0708 0%,
+      #871416 35%,
+      #4f0809 72%,
+      #1b0304 100%
+    );
+
+  box-shadow:
+    inset 0 0 0 3px rgba(25, 4, 4, 0.7),
+    0 7px 17px rgba(0, 0, 0, 0.35);
+}
+
+.shield-wrap {
+  width: 68px;
+  height: 68px;
+
+  display: grid;
+  place-items: center;
+
+  color: #eeeeeb;
+
+  border: 2px solid #8d1519;
+  border-radius: 16px;
+
+  transform: rotate(45deg);
+}
+
+.shield-wrap svg {
+  transform: rotate(-45deg);
+}
+
+.food-safety-copy h2 {
+  margin: 0 0 5px;
+
+  color: #dededb;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 29px;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+}
+
+.food-safety-copy p {
+  margin: 0;
+
+  color: #ededeb;
+
+  font-size: 14px;
+}
+
+.food-safety-status {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  color: #ef3034;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 19px;
+  letter-spacing: 1.6px;
+
+  white-space: nowrap;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1150px) {
+  .app-shell {
+    grid-template-columns: 235px minmax(0, 1fr);
+  }
+
+  .brand-stadium {
+    font-size: 35px;
+  }
+
+  .brand-chef {
+    font-size: 40px;
+  }
+
+  .sidebar-item {
+    padding: 11px 14px;
+    font-size: 15px;
+  }
+
+  .main-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .department-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shared-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================================
+   MOBILE / IPHONE
+   ========================================= */
+
+@media (max-width: 760px) {
+  .app-shell {
+    display: block;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    padding: 14px 14px 13px;
+
+    border-right: 0;
+    border-bottom: 1px solid #5f0d11;
+  }
+
+  .brand {
+    padding: 4px 0 8px;
+    border-bottom: 0;
+  }
+
+  .brand-stadium,
+  .brand-chef {
+    display: inline;
+    margin-right: 6px;
+
+    font-size: 22px;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .brand-ops {
+    margin-top: 0;
+    padding: 0;
+
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+
+  .brand-ops::before,
+  .brand-ops::after {
+    display: none;
+  }
+
+  .sidebar-nav,
+  .sidebar-heading,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 0 12px 22px;
+  }
+
+  .hero {
+    min-height: 238px;
+    padding: 27px 3px 15px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .welcome {
+    font-size: 14px;
+  }
+
+  .hero h1 {
+    max-width: 92%;
+
+    font-size: 38px;
+    line-height: 0.98;
+  }
+
+  .hero-copy p {
+    max-width: 90%;
+    font-size: 15px;
+  }
+
+  .hero-design {
+    width: 84%;
+    opacity: 0.4;
+  }
+
+  .user-area {
+    top: 16px;
+    right: 3px;
+  }
+
+  .user-name,
+  .user-arrow {
+    display: none;
+  }
+
+  .avatar {
+    width: 37px;
+    height: 37px;
+    font-size: 12px;
+  }
+
+  .section-title {
+    margin-top: 11px;
+    margin-bottom: 10px;
+
+    font-size: 20px;
+  }
+
+  .chevrons {
+    font-size: 26px;
+  }
+
+  /* Keep departments 2 x 2 on phone */
+
+  .department-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .department-card {
+    min-height: 260px;
+    padding: 14px 9px 12px;
+  }
+
+  .department-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .department-card h2 {
+    font-size: 22px;
+  }
+
+  .department-card p {
+    font-size: 12.5px;
+    line-height: 1.38;
+  }
+
+  .coming-soon {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .open-button {
+    width: 92%;
+    min-height: 38px;
+    font-size: 15px;
+  }
+
+  /* Four shared tools become 2 x 2 on phone */
+
+  .shared-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .shared-card {
+    min-height: 215px;
+    padding: 13px 8px 11px;
+  }
+
+  .shared-card h3 {
+    font-size: 18px;
+  }
+
+  .shared-card p {
+    font-size: 12px;
+  }
+
+  /* Food Safety always remains underneath */
+  
+  .food-safety-banner {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 11px;
+
+    min-height: 135px;
+    padding: 13px;
+  }
+
+  .shield-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 11px;
+  }
+
+  .shield-wrap svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .food-safety-copy h2 {
+    font-size: 21px;
+  }
+
+  .food-safety-copy p {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .food-safety-status {
+    grid-column: 2;
+
+    margin-top: -5px;
+
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   SMALLER IPHONES
+   ========================================= */
+
+@media (max-width: 430px) {
+  .main-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .department-grid,
+  .shared-grid {
+    gap: 8px;
+  }
+
+  .department-card {
+    min-height: 245px;
+  }
+
+  .department-card h2 {
+    font-size: 20px;
+  }
+
+  .department-card p {
+    font-size: 11.7px;
+  }
+
+  .shared-card {
+    min-height: 205px;
+  }
+
+  .shared-card h3 {
+    font-size: 16px;
+  }
+
+  .shared-card p {
+    font-size: 11px;
+  }
+}
