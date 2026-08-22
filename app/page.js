@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   Bell,
   ChevronRight,
-  CrossedUtensils,
+  UtensilsCrossed,,
 } from "lucide-react";
 
 const departments = [
@@ -135,7 +135,7 @@ export default function HomePage() {
 
         <div className="sidebar-footer">
           <div className="footer-icon">
-            <CrossedUtensils size={30} strokeWidth={1.4} />
+            <UtensilsCrossed size={30} strokeWidth={1.4} />
           </div>
           <div>BUILT FOR OPERATIONS.</div>
           <strong>DRIVEN BY PASSION.</strong>
@@ -163,7 +163,7 @@ export default function HomePage() {
               <span>3</span>
             </div>
             <div className="avatar">CM</div>
-            <span className="user-name">Chef Matt</span>
+            <span className="user-name">Culinary Department</span>
             <span className="user-arrow">⌄</span>
           </div>
         </header>
