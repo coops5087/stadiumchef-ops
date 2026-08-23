@@ -107,12 +107,14 @@ export default function HomePage() {
     <main className="app-shell">
       <aside className="sidebar">
         <div className="brand">
-  <img
-    src="/stadiumchef-logo.jpg.jpg"
-    alt="StadiumChef Ops"
-    className="brand-logo"
-  />
-</div>        <nav className="sidebar-nav">
+          <div className="brand-stadium">
+            STAD<span className="knife-letter">I</span>UM
+          </div>
+          <div className="brand-chef">CHEF</div>
+          <div className="brand-ops">OPS</div>
+        </div>
+
+        <nav className="sidebar-nav">
           {navigation.map(([label, Icon], index) => (
             <SidebarItem
               key={label}
