@@ -43,7 +43,7 @@ function Sidebar({ screen, setScreen }: { screen: Screen; setScreen: (screen: Sc
     <aside className="sidebar">
       <div className="brand">
         <div className="brand-stadium">STAD<span className="knife-letter">I</span>UM</div>
-        <div className="brand-chef">CHEF</div><div className="brand-ops">OPS</div>
+        <div className="brand-ops">OPS</div>
       </div>
       <nav className="sidebar-nav">
         {navigation.map(([label, Icon]) => <SidebarItem key={label} label={label} Icon={Icon} active={(label === "Dashboard" && screen === "dashboard") || (label === "Clubs" && screen === "clubs")} onClick={label === "Dashboard" ? () => setScreen("dashboard") : label === "Clubs" ? () => setScreen("clubs") : undefined} />)}
